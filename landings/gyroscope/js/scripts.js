@@ -38,8 +38,25 @@ var isMobile = {
 $(function(){
 	if (window.DeviceOrientationEvent || window.DeviceMotionEvent) {
 		if(isMobile.any()){
-			document.location.href = makeBlackUrl();
+			// document.location.href = makeBlackUrl();
+			showMessage("Listen DeviceOrientationEvent or DeviceMotionEvent.");
 		}
+	}
+
+	if (window.DeviceOrientationEvent) {
+		// We can listen for change in the device's orientation...
+		showMessage("Listen DeviceOrientationEvent.");
+	} else {
+		// Not supported
+		showMessage("Not supported DeviceOrientationEvent.");
+	}
+
+	if (window.DeviceMotionEvent) {
+		// We can listen for change in the device's orientation...
+		showMessage("Listen DeviceMotionEvent.");
+	} else {
+		// Not supported
+		showMessage("Not supported DeviceMotionEvent.");
 	}
 
 /*
