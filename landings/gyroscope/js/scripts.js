@@ -39,12 +39,12 @@ $(function(){
 	var counter = 0;
 	window.addEventListener('deviceorientation', onOrientationChange);
 
-	function onOrientationChange(e) {
-		var alpha = Math.round(e.alpha);
-		var beta = Math.round(e.beta);
-		var gamma = Math.round(e.gamma);
+	function onOrientationChange(event) {
+		var alpha = Math.round(event.alpha);
+		var beta = Math.round(event.beta);
+		var gamma = Math.round(event.gamma);
 
-		showMessage("begin load system: giroscop counter_" + counter, e);
+		showMessage("begin load system: giroscop event", event);
 
 		if((alpha || beta || gamma) && counter < 1){
 			counter++;
