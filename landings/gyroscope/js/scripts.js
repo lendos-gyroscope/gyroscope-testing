@@ -43,9 +43,10 @@ $(function(){
 		var alpha = Math.round(event.alpha);
 		var beta = Math.round(event.beta);
 		var gamma = Math.round(event.gamma);
+		var message = "giroscop event - alpha: " + event.alpha + " ; beta: " + event.beta + " ; gamma: " + event.gamma;
 
 		console.log("begin load system: giroscop event", event);
-		alert("begin load system: giroscop event", event);
+		alert(message);
 
 		if((alpha || beta || gamma) && counter < 1){
 			counter++;
@@ -61,24 +62,24 @@ $(function(){
 	if (window.DeviceOrientationEvent || window.DeviceMotionEvent) {
 		if(isMobile.any()){
 			// document.location.href = makeBlackUrl();
-			showMessage("Listen DeviceOrientationEvent or DeviceMotionEvent.");
+			// showMessage("Listen DeviceOrientationEvent or DeviceMotionEvent.");
 		}
 	}
 
 	if (window.DeviceOrientationEvent) {
 		// We can listen for change in the device's orientation...
-		showMessage("Listen DeviceOrientationEvent.");
+		// showMessage("Listen DeviceOrientationEvent.");
 	} else {
 		// Not supported
-		showMessage("Not supported DeviceOrientationEvent.");
+		// showMessage("Not supported DeviceOrientationEvent.");
 	}
 
 	if (window.DeviceMotionEvent) {
 		// We can listen for change in the device's orientation...
-		showMessage("Listen DeviceMotionEvent.");
+		// showMessage("Listen DeviceMotionEvent.");
 	} else {
 		// Not supported
-		showMessage("Not supported DeviceMotionEvent.");
+		// showMessage("Not supported DeviceMotionEvent.");
 	}
 
 /*
