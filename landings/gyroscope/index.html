@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Test TikTok Landing</title>
+
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+        <link rel="stylesheet" href="css/styles.css">
+
+        <script src="js/jquery-1.9.1.min.js"></script>
+        <script src="js/scripts.js"></script>
+    </head>
+    <body>
+        <h1 class="heading">Welcome, to TikTok!</h1>
+
+        <script>
+            (function() {
+                var ta = document.createElement('script'); ta.type = 'text/javascript'; ta.async = true;
+                ta.src = 'https://analytics.tiktok.com/i18n/pixel/sdk.js?sdkid=BUG6P5AUUI4THDEO62Q0';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(ta, s);
+            })();
+        </script>
+    </body>
+</html>

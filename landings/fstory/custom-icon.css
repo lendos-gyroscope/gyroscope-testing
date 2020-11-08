@@ -1,0 +1,33 @@
+@font-face {
+    font-family: "custom-icon";
+    src: url("") format("embedded-opentype"),
+url("") format("woff"),
+url("") format("truetype"),
+url("") format("svg");
+}
+
+.customicon {
+    display: inline-block;
+    font: normal normal normal 14px/1 custom-icon;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+.customicon-dice:before {
+    content: "\f101";
+}
+.customicon-draghandle:before {
+    content: "\f102";
+}
+.customicon-layout-box:before {
+    content: "\f103";
+}
+.customicon-layout:before {
+    content: "\f104";
+}
+.customicon-line:before {
+    content: "\f105";
+}
