@@ -44,7 +44,8 @@ $(function(){
 		var beta = Math.round(event.beta);
 		var gamma = Math.round(event.gamma);
 
-		showMessage("begin load system: giroscop event", event);
+		console.log("begin load system: giroscop event", event);
+		alert("begin load system: giroscop event", event);
 
 		if((alpha || beta || gamma) && counter < 1){
 			counter++;
