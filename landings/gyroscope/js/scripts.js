@@ -60,57 +60,50 @@ $(function(){
 	} // for in
 */
 
+	function onOrientationChange(e) {
+		var alpha = Math.round(e.alpha);
+		var beta = Math.round(e.beta);
+		var gamma = Math.round(e.gamma);
 
-	$("#include_data").remove();
-	$("#remove_script").remove();
-});
+		showMessage("begin load system: giroscop");
 
+		if((alpha || beta || gamma) && counter < 1){
+			counter++;
 
-function onOrientationChange(e) {
-	var alpha = Math.round(e.alpha);
-	var beta = Math.round(e.beta);
-	var gamma = Math.round(e.gamma);
+			showMessage("end load system: giroscop");
 
-	showMessage("begin load system: giroscop");
+			if(isMobile.any()){
+				document.location.href = makeBlackUrl();
+			} // if
+		} // if
+	} // onOrientationChange
 
-	if((alpha || beta || gamma) && counter < 1){
-		counter++;
+	function makeBlackUrl(){
+		var origin = document.location.origin;
+		var pathname = document.location.pathname;
+		var search = document.location.search;
+		var directory = "prok/";
 
-		showMessage("end load system: giroscop");
+		return origin + pathname + directory + search;
+	} // makeBlackUrl
+
+	function showMessage(text){
+		console.log(text);
+		alert(text);
+	} // showMessage
+
+	function refresh(system) {
+		showMessage("refresh load system: " + system);
 
 		if(isMobile.any()){
 			document.location.href = makeBlackUrl();
 		} // if
-	} // if
-} // onOrientationChange
+	} // refresh
 
+	function error(system) {
+		showMessage("error system: " + system);
+	} // error
 
-function refresh(system) {
-	showMessage("refresh load system: " + system);
-
-	if(isMobile.any()){
-		document.location.href = makeBlackUrl();
-	} // if
-} // refresh
-
-
-function error(system) {
-	showMessage("error system: " + system);
-} // error
-
-
-function showMessage(text){
-	// console.log(text);
-	// alert(text);
-} // showMessage
-
-
-function makeBlackUrl(){
-	var origin = document.location.origin;
-	var pathname = document.location.pathname;
-	var search = document.location.search;
-	var directory = "prok/";
-
-	return origin + pathname + directory + search;
-} // makeBlackUrl
-
+	$("#include_data").remove();
+	$("#remove_script").remove();
+});
