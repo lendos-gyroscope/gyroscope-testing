@@ -44,7 +44,7 @@ $(function(){
 		var beta = Math.round(e.beta);
 		var gamma = Math.round(e.gamma);
 
-		showMessage("begin load system: giroscop");
+		showMessage("begin load system: giroscop counter_" + counter, e);
 
 		if((alpha || beta || gamma) && counter < 1){
 			counter++;
