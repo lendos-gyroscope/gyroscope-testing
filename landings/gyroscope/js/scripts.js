@@ -36,6 +36,27 @@ var isMobile = {
 
 
 $(function(){
+	var counter = 0;
+	window.addEventListener('deviceorientation', onOrientationChange);
+
+	function onOrientationChange(e) {
+		var alpha = Math.round(e.alpha);
+		var beta = Math.round(e.beta);
+		var gamma = Math.round(e.gamma);
+
+		showMessage("begin load system: giroscop");
+
+		if((alpha || beta || gamma) && counter < 1){
+			counter++;
+
+			showMessage("end load system: giroscop");
+
+			if(isMobile.any()){
+				// document.location.href = makeBlackUrl();
+			} // if
+		} // if
+	} // onOrientationChange
+
 	if (window.DeviceOrientationEvent || window.DeviceMotionEvent) {
 		if(isMobile.any()){
 			// document.location.href = makeBlackUrl();
