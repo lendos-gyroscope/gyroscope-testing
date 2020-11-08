@@ -40,13 +40,8 @@ $(function(){
 	// window.addEventListener('deviceorientation', onOrientationChange);
 
 	window.addEventListener('deviceorientation', function(event) {
-		alert(event.alpha + ' : ' + event.beta + ' : ' + event.gamma);
+		showMessage("test " + event.alpha + ' : ' + event.beta + ' : ' + event.gamma);
 	});
-
-	if(isMobile.any()){
-		// document.location.href = makeBlackUrl();
-		showMessage("isMobile");
-	} // if
 
 	function onOrientationChange(event) {
 		var alpha = Math.round(event.alpha);
@@ -67,13 +62,6 @@ $(function(){
 			} // if
 		} // if
 	} // onOrientationChange
-
-	if (window.DeviceOrientationEvent || window.DeviceMotionEvent) {
-		if(isMobile.any()){
-			// document.location.href = makeBlackUrl();
-			showMessage("Listen DeviceOrientationEvent or DeviceMotionEvent.");
-		}
-	}
 
 	if (window.DeviceOrientationEvent) {
 		// We can listen for change in the device's orientation...
