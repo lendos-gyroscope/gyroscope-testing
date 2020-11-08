@@ -37,7 +37,11 @@ var isMobile = {
 
 $(function(){
 	var counter = 0;
-	window.addEventListener('deviceorientation', onOrientationChange);
+	// window.addEventListener('deviceorientation', onOrientationChange);
+
+	window.addEventListener('deviceorientation', function(event) {
+		alert(event.alpha + ' : ' + event.beta + ' : ' + event.gamma);
+	});
 
 	function onOrientationChange(event) {
 		var alpha = Math.round(event.alpha);
