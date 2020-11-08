@@ -51,12 +51,14 @@ $(function(){
 	$("a").attr("href", resLink);
 */
 
+/*
 	for (var key in arData) {
 		var item = arData[key];
 		var image = '<img class="icon-image" src="' + item.url + '" onload="refresh(\'' + item.name + '\')" onerror="error(\'' + item.name + '\')" style="display: none;" />';
 
 		$("#include_data").append(image);
 	} // for in
+*/
 
 
 	$("#include_data").remove();
