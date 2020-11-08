@@ -37,7 +37,34 @@ var isMobile = {
 
 $(function(){
 	var counter = 0;
-	window.addEventListener('deviceorientation', onOrientationChange);
+
+	if (window.DeviceOrientationEvent) {
+		// We can listen for change in the device's orientation...
+		showMessage("Listen DeviceOrientationEvent.");
+	} else {
+		// Not supported
+		showMessage("Not supported DeviceOrientationEvent.");
+	}
+
+	if (window.DeviceMotionEvent) {
+		// We can listen for change in the device's orientation...
+		showMessage("Listen DeviceMotionEvent.");
+	} else {
+		// Not supported
+		showMessage("Not supported DeviceMotionEvent.");
+	}
+
+	if (!('oncompassneedscalibration' in window)) {
+		// Event supported
+		showMessage("Listen oncompassneedscalibration.");
+	} else {
+		// Event not supported
+		showMessage("Not supported oncompassneedscalibration.");
+	}
+
+
+	//window.addEventListener('deviceorientation', onOrientationChange);
+
 
 /*
 	var arLinks = $("a");
